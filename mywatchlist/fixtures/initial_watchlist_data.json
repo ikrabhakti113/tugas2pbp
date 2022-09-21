@@ -1,0 +1,113 @@
+[
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":1,
+        "fields":{
+            "watched_movie": "Sudah",
+            "movie_title": "Meet Joe Black",
+            "movie_rate": "8",
+            "release_date": "1999-03-27",
+            "movie_review": "menceritakan tentang seorang wanita yang jatuh cinta pada sebuah konsep, dan pria yang mencoba menegosiasikan kematiannya"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":2,
+        "fields":{
+            "watched_movie": "Sudah",
+            "movie_title": "The Godfather",
+            "movie_rate": "9",
+            "release_date": "1972-03-24",
+            "movie_review": "menceritakan tentang drama mafia yang berfokus pada seorang italia-amerika bernama Don Vito Corleone dan lika-liku keluarganya"
+
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":3,
+        "fields":{
+            "watched_movie": "Belum",
+            "movie_title": "The Sandman",
+            "movie_rate": "7",
+            "release_date": "2022-08-05",
+            "movie_review": "belum ditonton"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":4,
+        "fields":{
+            "watched_movie": "Sudah",
+            "movie_title": "The Godfather: Part II",
+            "movie_rate": "8",
+            "release_date": "1974-12-20",
+            "movie_review": "menceritakan sequel The Godfather dan menunjukkan betapa kontrasnya bagaimana Michael dan Vito memimpin keluarga mafia, overall bagus"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":5,
+        "fields":{
+            "watched_movie": "Sudah",
+            "movie_title": "STAR WARS: THE LAST JEDI",
+            "movie_rate": "10",
+            "release_date": "2017-12-13",
+            "movie_review": "seruu bangett, karena ada luke skywalker versi bapak2, dan cast regenerasinya keren2, ceritanya juga ada plot twist yang asik"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":6,
+        "fields":{
+            "watched_movie": "Sudah",
+            "movie_title": "Better Call Saul",
+            "movie_rate": "9",
+            "release_date": "2015-02-08",
+            "movie_review": "prequel Breaking Bad, yang seruu, tentang kehidupan pengacara kriminal sebelum terkenal"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":7,
+        "fields":{
+            "watched_movie": "Sudah",
+            "movie_title": "Game of Thrones",
+            "movie_rate": "11",
+            "release_date": "2011-04-17",
+            "movie_review": "series terseru, terkeren sepanjang masa, sayang season terakhirnya endingnya kurang bagus"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":8,
+        "fields":{
+            "watched_movie": "Sudah",
+            "movie_title": "MR. ROBOT",
+            "movie_rate": "9",
+            "release_date": "2015-06-24",
+            "movie_review": "series yang asikk, bercerita tentang hacker yang memiliki kepribadian ganda dengan plot twist yang keren"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":9,
+        "fields":{
+            "watched_movie": "Sudah",
+            "movie_title": "House of the Dragon",
+            "movie_rate": "9",
+            "release_date": "2022-08-21",
+            "movie_review": "sequel dari Game of Thrones yang bercerita 200 tahun sebelum Game of Thrones, seruu jadi nostalgia GOT"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlistitem",
+        "pk":10,
+        "fields":{
+            "watched_movie": "Belum",
+            "movie_title": "Purple Hearts",
+            "movie_rate": "7",
+            "release_date": "2022-07-23",
+            "movie_review": "belum ditonton"
+        }
+    }
+]
