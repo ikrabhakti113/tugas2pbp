@@ -22,8 +22,14 @@ Data delivery diperlukan dalam pengimplementasian sebuah platform agar pengerjaa
     d. release_date
     e. movie_review
    Lalu lakukan perintah 'python manage.py makemigrations' untuk menyiapkan skema model ke database Django pada mesin lokal dan lakkukan perintah 'python manage.py migrate' untuk menerapkan skema ke dalam database Django lokal.
+ 
+4. Jangan lupa menambahkan data yang ingin ditampilkan dengan menggunakan 'initial_watchlist_data.json' yang isinya 10 data yang diminta sebagai isi dari mywatchlistitem dan update PROCFILE dengan command yang melakukan loaddata dengan command 'python manage.py loaddata initial_watchlist_data.json'
+
+5. Membuat fungsi-fungsi pada lab02 seperti fungsi HTML, JSON, XML untuk menyajikan data tersebut dan jangan lupa melakukan routing dengan menambahkan url tersebut pada urls.py.
+
+6. lakukan 4 mantra pull, add, commit dan push lalu deploy ke aplikasi yang terhubung di HEROKU.
    
-   # POSTMAN
+# POSTMAN
 
 ![messageImage_1663788355276](https://user-images.githubusercontent.com/87271057/191655903-50bfd4eb-236c-45f5-8889-2190382d9870.jpg)
 
