@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h5>User : </h5>
+<b>{{user.username}}</b>
+
+<table>
+    <tr>
+    <th>Date</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Delete</th>
+    </tr>
+    {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+    {% for task in list_task %}
+    <tr style="background-color: rgb(230, 223, 206);">
+        <td>{{task.date}}</td>
+        <td>{{task.title}}</td>
+        <td>{{task.description}}</td>
+        {% if task.is_finished == False %}
+        <th>Belum Selesai</th>
+        {% else %}
+        <th>Selesai</th>
+        {% endif %}
+        <td><button><a href="{% url 'todolist:check' task.id %}">Check</a></button></td>
+        <td><button><a href="{% url 'todolist:delete' task.id %}">Delete</a></button></td>
+    </tr>
+{% endfor %}
+</table>
+
+<button><a href="{% url 'todolist:create_task' %}">Task</a></button>
+<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+
+<h4><center> {{pesan}} </center></h4>
+
+{% endblock content %}
