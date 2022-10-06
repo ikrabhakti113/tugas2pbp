@@ -1,12 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block meta %}
 <title>Login</title>
 {% endblock meta %}
 
-{% block content %}
+<html>
 
-<div class = "login">
+{% block content %}
+<div class="center">
+
+<link rel="stylesheet" href="{% static 'css/bootstrap-login.css' %}"/>
+  <form method="POST" action="">
+    {% csrf_token %}
+  <h1>HOLA {{ nama }}</h1>
+  <form>
+    <div class="inputbox">
+      <input input type="text" name="username" placeholder="Username" class="form-control">
+      <span>User Name</span>
+    </div>
+    <div class="inputbox">
+      <input type="password" name="password" placeholder="Password" class="form-control">
+      <span>Password</span>
+    </div>
+    <div class="inputbox">
+      <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+      {% if messages %}
+      <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+      {% endif %}  
+    </div>
+    <div>
+      <p class="mb-0">Don't have an account? <a href="{% url 'todolist:register' %}" class="text-white-50 fw-bold">Sign Up</a>
+      </p>
+    </div>
+  </form>
+</div>
+
+<!-- <div class="center">
 
     <h1>Login</h1>
 
@@ -41,5 +75,6 @@
     Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
 
 </div>
+</html> -->
 
 {% endblock content %}

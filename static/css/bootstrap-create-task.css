@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url(create-task1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .create-task {
+    position: fixed;
+    top: 50%;
+    left: 45%;
+    transform: translate(-30%, -50%);
+    background: rgba(4, 29, 23, 0.5);
+    padding: 50px;
+    width: 400px;
+    box-shadow: 0px 0px 25px 10px black;
+    border-radius: 15px;
+    font-family: 'Signika Negative', sans-serif;
+    transition: all 1s;
+  }
+  
+  .login h1 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    font-family: 'Signika Negative', sans-serif;
+    letter-spacing: 3px;
+    padding-top: 0;
+    margin-top: -20px;
+  }
+  .box-create-task {
+    display: flex;
+    justify-content:space-between;
+    margin: 10px;
+    border-bottom: 2px solid rgb(252, 252, 252);
+    padding: 3px 0;
+  }
+  
+  .login_btn
+  .box-login input:hover{
+    background: rgba(10, 10, 10,s 0.5);
+  }
+  .login_btn {
+    margin-left: 10px;
+    margin-bottom: 20px;
+    background: none;
+    border: 1px solid white;
+    width: 92.5%;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    }
+  .login_btn:hover{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  }
+  @media screen and (max-width: 576px) {
+    .create-task{
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    transform: translate(-30%, -50%);
+    background: rgba(4, 29, 23, 0.5);
+    padding: 50px;
+    width: 400px;
+    box-shadow: 0px 0px 25px 10px black;
+    border-radius: 15px;
+    font-family: 'Signika Negative', sans-serif;
+    transition: all 1s;
+    }
+  }
