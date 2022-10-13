@@ -1,37 +1,28 @@
 from django.shortcuts import render
+from todolist.models import Task
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-from http.client import HTTPResponse
-from todolist.models import mytodolistitem
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect
 import datetime
+from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
+import json
+from django.core import serializers
+from django.http.response import JsonResponse, HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
+# Create your views here.
 
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
-    data_todolist = mytodolistitem.objects.filter(user=request.user)
+    data_todolist = Task.objects.filter(user=request.user)
     context = {
-    'list_task': data_todolist,
+        'todolist_data': data_todolist,
+        'userName': request.user,
     }
     return render(request, "todolist.html", context)
-
-def create_task(request):
-    if request.method == "POST":
-        is_finished = False
-        mytodolistitem.objects.create(title=request.POST.get('title'), description=request.POST.get('description'), date=datetime.datetime.now(), user=request.user, is_finished=is_finished)
-        response = HttpResponseRedirect(reverse('todolist:show_todolist'))
-        return response
-    return render(request, "create_task.html")
-
-def delete(request, id):
-  task = mytodolistitem.objects.get(id=id)
-  task.delete()
-  return HttpResponseRedirect(reverse('todolist:show_todolist'))
 
 def register(request):
     form = UserCreationForm()
@@ -45,15 +36,6 @@ def register(request):
     
     context = {'form':form}
     return render(request, 'register.html', context)
-
-def check(request, update_status):
-    check_status = mytodolistitem.objects.get(id=update_status)
-    if check_status.is_finished == False:
-        check_status.is_finished = True
-    else:
-        check_status.is_finished = False
-    check_status.save()
-    return HttpResponseRedirect(reverse('todolist:show_todolist'))
 
 def login_user(request):
     if request.method == 'POST':
@@ -76,12 +58,51 @@ def logout_user(request):
     response.delete_cookie('last_login')
     return response
 
+def create_task(request):
+    if request.method == "POST":
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        create_task = Task(
+            user = request.user,
+            title = title,
+            description = description,
+        )
+        create_task.save()
+        return redirect('todolist:create_task')
+    return render(request, 'createtask.html')
 
+def delete_todo_list(request, id):
+    itemList = Task.objects.filter(id=id)
+    itemList.delete()
+    return redirect('todolist:show_todolist')
 
+def cek_status(request, id):
+    todoListCheck = Task.objects.get(pk=id)
+    if (todoListCheck.is_finished == False):
+        todoListCheck.is_finished = True
+    else:
+        todoListCheck.is_finished = False
+    todoListCheck.save()
+    return redirect('todolist:show_todolist')
 
+@login_required(login_url='/todolist/login/')
+def show_json(request):
+    todolist_item = Task.objects.all()
+    return HttpResponse(serializers.serialize('json', todolist_item), content_type='application/json')
 
+def add_todolist_ajax(request):
+    title = request.POST.get('title')
+    description = request.POST.get('description')
+    add_todolist_ajax = Task(
+        user = request.user,
+        title = title,
+        description = description,
+    )
+    add_todolist_ajax.save()
+    return JsonResponse({"task": "new todolist"})
 
-
-
-
-
+@csrf_exempt
+def delete_todolist_ajax(request,id):
+    task = Task.objects.filter(pk=id)   
+    task.delete()
+    return JsonResponse({"task": "clear todolist"})
